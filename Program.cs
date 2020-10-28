@@ -10,8 +10,9 @@ namespace HomeWork.ITAcademy1
             double first;
             double second;
             Console.WriteLine("Enter two numbers: ");
-            Console.Write($"First: {first = Convert.ToDouble(Console.ReadLine())}");
-            Console.WriteLine(second = Convert.ToDouble(Console.ReadLine()));
+            Console.WriteLine($"First: {first = Convert.ToDouble(Console.ReadLine())}");
+            Console.WriteLine($"Second: {second = Convert.ToDouble(Console.ReadLine())}\n\n" +
+                $"List of operations: \n");
 
             Console.WriteLine("Summary is +\n" +
                 "Subtraction is -\n" +
