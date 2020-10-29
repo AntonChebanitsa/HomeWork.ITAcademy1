@@ -5,6 +5,7 @@ namespace HomeWork.ITAcademy1
 {
     class Program
     {
+//TODO сделать бесконечный цикл и условием выхода
         static void Main()
         {
             double first = 0;
@@ -29,8 +30,7 @@ namespace HomeWork.ITAcademy1
                 "Exponentiation is \t^");
             Console.Write($"Еnter the required operation: ");
             flag = Convert.ToString(Console.ReadLine());
-//todo Где-то тут ошибка, принимает все вводимые символы как некорректные(flag)
-            if (flag != "+" || flag != "-" || flag != "*" || flag != "/" || flag != "^" || flag != "!")
+            if (flag != "+" && flag != "-" && flag != "*" && flag != "/" && flag != "^" && flag != "!")
             {
                 Console.WriteLine("Incorrect input!\nTry again from begin\n");
                 Main();
@@ -39,7 +39,7 @@ namespace HomeWork.ITAcademy1
             {
                 try
                 {
-                    Console.Write($"Second (For factorial press enter the number again) ");
+                    Console.Write($"Second: ");
                     second = Convert.ToDouble(Console.ReadLine());
                 }
                 catch (FormatException)
