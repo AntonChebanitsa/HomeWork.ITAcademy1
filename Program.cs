@@ -26,39 +26,46 @@ namespace HomeWork.ITAcademy1
                 "Subtraction is -\n" +
                 "Mulplier is *\n" +
                 "Division is: /");
+
             //todo make a loop to validate user input
             Console.Write($"Еnter the required operation: ");
-
-            string flag = Convert.ToString(Console.ReadLine());
-
-            switch (flag)
+            bool IsIncorrectFlag= false;
+            do
             {
-                case "+":
-                    Addition(first, second);
-                    break;
-                case "*":
-                    Multiplier(first, second);
-                    break;
-                case "-":
-                    Subtraction(first, second);
-                    break;
-                case "/":
-                    Division(first, second);
-                    break;
-                default:
-                    break;
+                string flag = Convert.ToString(Console.ReadLine());
+
+                switch (flag)
+                {
+                    case "+":
+                        Console.WriteLine($"The result of addition is: {Addition(first, second)}");
+                        break;
+                    case "*":
+                        Console.WriteLine($"Your answer is: {Multiplier(first, second)}");
+                        break;
+                    case "-":
+                        Subtraction(first, second);
+                        break;
+                    case "/":
+                        Division(first, second);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid sign, try again");
+                        break;
+                }
             }
-            static void Addition(double first, double second)
+            while (IsIncorrectFlag == true);
+
+            static double Addition(double first, double second)
             {
-                Console.WriteLine($"Your answer is: {first + second}");
+                return first + second;
             }
             static void Subtraction(double first, double second)
             {
                 Console.WriteLine($"Your answer is: {first - second}");
             }
-            static void Multiplier(double first, double second)
+            static double Multiplier(double first, double second)
             {
-                Console.WriteLine($"Your answer is: {first * second}");
+                return first * second;
             }
             static void Division(double first, double second)
             {
@@ -70,8 +77,6 @@ namespace HomeWork.ITAcademy1
                 else
                     Console.WriteLine($"Your answer is: {first / second}");
             }
-
         }
-
     }
 }
