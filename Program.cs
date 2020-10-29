@@ -29,7 +29,7 @@ namespace HomeWork.ITAcademy1
                 "Exponentiation is \t^");
             Console.Write($"Еnter the required operation: ");
             flag = Convert.ToString(Console.ReadLine());
-            //todo Где-то тут ошибка, принимает все вводимые символы как некорректные(flag)
+//todo Где-то тут ошибка, принимает все вводимые символы как некорректные(flag)
             if (flag != "+" || flag != "-" || flag != "*" || flag != "/" || flag != "^" || flag != "!")
             {
                 Console.WriteLine("Incorrect input!\nTry again from begin\n");
