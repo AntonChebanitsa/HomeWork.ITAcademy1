@@ -7,60 +7,57 @@ namespace HomeWork.ITAcademy1
     {
         static void Main()
         {
-            Console.WriteLine("Press any key to continue. If you want exit press ESC");
-            while (Console.ReadKey(true).Key != ConsoleKey.Escape) 
-            {
-                Initialisations();
-            }
+            Initialisations();
         }
 
         static void Initialisations()
         {
-
-            double first = 0;
-            double second = 0;
-            string operation = null;
-            Console.WriteLine("Enter numbers: ");
-            try
+            Console.WriteLine("Press any key to continue. If you want exit press ESC");
+            while (Console.ReadKey(true).Key != ConsoleKey.Escape)
             {
-                Console.Write("First: ");
-                first = Convert.ToDouble(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("This is not number!!\n");
-                Main();
-            }
-            Console.WriteLine("Summary is \t\t+\n" +
-                "Subtraction is \t\t-\n" +
-                "Mulplier is \t\t*\n" +
-                "Division is \t\t/\n" +
-                "Factorial is \t\t!\n" +
-                "Exponentiation is \te");
-            Console.Write($"Еnter the required operation: ");
-            operation = Convert.ToString(Console.ReadLine());
-            if (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "^" && operation != "!")
-            {
-                Console.WriteLine("Incorrect input!\nTry again from begin\n");
-                Main();
-            }
-            if (operation != "!")
-            {
+                double first = 0;
+                double second = 0;
+                Console.WriteLine("Enter numbers: ");
                 try
                 {
-                    Console.Write($"Second: ");
-                    second = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("First: ");
+                    first = Convert.ToDouble(Console.ReadLine());
                 }
                 catch (FormatException)
                 {
                     Console.WriteLine("This is not number!!\n");
                     Main();
                 }
-                InsertionFlag(first, second, operation);
+                Console.WriteLine("Summary is \t\t+\n" +
+                    "Subtraction is \t\t-\n" +
+                    "Mulplier is \t\t*\n" +
+                    "Division is \t\t/\n" +
+                    "Factorial is \t\t!\n" +
+                    "Exponentiation is \te");
+                Console.Write($"Еnter the required operation: ");
+                string operation = Convert.ToString(Console.ReadLine());
+                if (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "e" && operation != "!")
+                {
+                    Console.WriteLine("Incorrect input!\nTry again from begin\n");
+                    continue ;
+                }
+                if (operation != "!")
+                {
+                    try
+                    {
+                        Console.Write($"Second: ");
+                        second = Convert.ToDouble(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("This is not number!!\n");
+                        Main();
+                    }
+                    InsertionFlag(first, second, operation);
+                }
+                else
+                    Console.WriteLine($"Factorial {first} is {Factorial(first)}");
             }
-            else
-                Console.WriteLine($"Factorial {first} is {Factorial(first)}");
-
         }
 
         static void InsertionFlag(double first, double second, string flag)
