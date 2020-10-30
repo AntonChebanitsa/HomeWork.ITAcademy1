@@ -5,12 +5,21 @@ namespace HomeWork.ITAcademy1
 {
     class Program
     {
-//TODO сделать бесконечный цикл и условием выхода
         static void Main()
         {
+            Console.WriteLine("Press any key to continue. If you want exit press ESC");
+            while (Console.ReadKey(true).Key != ConsoleKey.Escape) 
+            {
+                Initialisations();
+            }
+        }
+
+        static void Initialisations()
+        {
+
             double first = 0;
             double second = 0;
-            string flag =null;
+            string operation = null;
             Console.WriteLine("Enter numbers: ");
             try
             {
@@ -27,15 +36,15 @@ namespace HomeWork.ITAcademy1
                 "Mulplier is \t\t*\n" +
                 "Division is \t\t/\n" +
                 "Factorial is \t\t!\n" +
-                "Exponentiation is \t^");
+                "Exponentiation is \te");
             Console.Write($"Еnter the required operation: ");
-            flag = Convert.ToString(Console.ReadLine());
-            if (flag != "+" && flag != "-" && flag != "*" && flag != "/" && flag != "^" && flag != "!")
+            operation = Convert.ToString(Console.ReadLine());
+            if (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "^" && operation != "!")
             {
                 Console.WriteLine("Incorrect input!\nTry again from begin\n");
                 Main();
             }
-            if (flag != "!")
+            if (operation != "!")
             {
                 try
                 {
@@ -47,11 +56,13 @@ namespace HomeWork.ITAcademy1
                     Console.WriteLine("This is not number!!\n");
                     Main();
                 }
-                InsertionFlag(first, second, flag);
+                InsertionFlag(first, second, operation);
             }
             else
                 Console.WriteLine($"Factorial {first} is {Factorial(first)}");
+
         }
+
         static void InsertionFlag(double first, double second, string flag)
         {
             bool IsIncorrectFlag = false;
@@ -72,7 +83,7 @@ namespace HomeWork.ITAcademy1
                     case "/":
                         Console.WriteLine($"The result of division: {Division(first, second)}");
                         break;
-                    case "^":
+                    case "e":
                         Console.WriteLine($"Number {first} in extent {second} is:{Exponentiation(first, second)}\n");
                         break;
                     default:
@@ -108,6 +119,8 @@ namespace HomeWork.ITAcademy1
         }
         static double Factorial(double first)
         {
+            Console.WriteLine("The number will be cast to an integer type");
+            first = (int)first;
             double result = 1;
             for (int i = (int)first; i > 0; i--)
                 result = i * result;
