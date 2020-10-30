@@ -15,20 +15,22 @@ namespace HomeWork.ITAcademy1
         {
             while (Console.ReadKey(true).Key != ConsoleKey.Escape)
             {
-               
-                double first = 0;
-                double second = 0;
-                Console.WriteLine("Enter numbers: ");
-                try
-                {
-                    Console.Write("First: ");
-                    first = Convert.ToDouble(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("This is not number!!\n");
-                    Main();
-                }
+                Random rnd1 = new Random();
+                Random rnd2 = new Random();
+                double first = rnd1.NextDouble();
+                double second = rnd2.NextDouble();
+
+                //Console.WriteLine("Enter numbers: ");
+                //try
+                //{
+                //    Console.Write("First: ");
+                //    first = Convert.ToDouble(Console.ReadLine());
+                //}
+                //catch (FormatException)
+                //{
+                //    Console.WriteLine("This is not number!!\n");
+                //    Main();
+                //}
                 Console.WriteLine("Summary is \t\t+\n" +
                     "Subtraction is \t\t-\n" +
                     "Mulplier is \t\t*\n" +
@@ -40,20 +42,20 @@ namespace HomeWork.ITAcademy1
                 if (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "e" && operation != "!")
                 {
                     Console.WriteLine("Incorrect input!\nTry again from begin\n");
-                    Main() ;
+                    Main();
                 }
                 if (operation != "!")
                 {
-                    try
-                    {
-                        Console.Write($"Second: ");
-                        second = Convert.ToDouble(Console.ReadLine());
-                    }
-                    catch (FormatException)
-                    {
-                        Console.WriteLine("This is not number!!\n");
-                        Main();
-                    }
+                    //try
+                    //{
+                    //    Console.Write($"Second: ");
+                    //    second = Convert.ToDouble(Console.ReadLine());
+                    //}
+                    //catch (FormatException)
+                    //{
+                    //    Console.WriteLine("This is not number!!\n");
+                    //    Main();
+                    //}
                     InsertionOperation(first, second, operation);
                 }
                 else
@@ -70,19 +72,19 @@ namespace HomeWork.ITAcademy1
                 switch (flag)
                 {
                     case "+":
-                        Console.WriteLine($"The result of addition is: {Addition(first, second)}\n");
+                        Console.WriteLine($"The result of addition {first} and {second} is: {Addition(first, second)}\n");
                         break;
                     case "*":
-                        Console.WriteLine($"Your answer is: {Multiplier(first, second)}\n");
+                        Console.WriteLine($"The result of multiply {first} and {second} is:{Multiplier(first, second)}\n");
                         break;
                     case "-":
-                        Console.WriteLine($"{first} subtract {second} is: {Subtraction(first, second)}");
+                        Console.WriteLine($"The result of subtraction {first} and {second} is:{Subtraction(first, second)}");
                         break;
                     case "/":
-                        Console.WriteLine($"The result of division: {Division(first, second)}");
+                        Console.WriteLine($"The result of division {first} and {second} is:{Division(first, second)}");
                         break;
                     case "e":
-                        Console.WriteLine($"Number {first} in extent {second} is: {Exponentiation(first, second)}\n");
+                        Console.WriteLine($"The result of exponentiation {first}  and {second} is:{Exponentiation(first, second)}\n");
                         break;
                     default:
                         IsIncorrectFlag = true;
