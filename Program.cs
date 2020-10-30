@@ -126,6 +126,7 @@ namespace HomeWork.ITAcademy1
         }
         static double Exponentiation(double first, double second)
         {
+            Console.WriteLine("The growth rate will be cast to an integer type");
             if (second % 1 != 0)
                 if (second % 1 > 0.5)
                     second = (int)second + 1;
