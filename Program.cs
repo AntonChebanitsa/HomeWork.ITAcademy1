@@ -5,20 +5,21 @@ namespace HomeWork.ITAcademy1
 {
     class Program
     {
+
         static void Main()
         {
-            Console.WriteLine("Press any key to continue. If you want exit press ESC");
             Initialisations();
         }
 
         static void Initialisations()
         {
+            Console.WriteLine("Press any key to continue. If you want exit press ESC");
             while (Console.ReadKey(true).Key != ConsoleKey.Escape)
             {
-                Random rnd1 = new Random();
-                Random rnd2 = new Random();
-                double first = rnd1.NextDouble();
-                double second = rnd2.NextDouble();
+                Random random1 = new Random();
+                Random random2 = new Random();
+                double firstNumber = Math.Round(random1.NextDouble() * 50, 3);
+                double secondNumber = Math.Round(random2.NextDouble() * 10, 3);
 
                 //Console.WriteLine("Enter numbers: ");
                 //try
@@ -29,7 +30,7 @@ namespace HomeWork.ITAcademy1
                 //catch (FormatException)
                 //{
                 //    Console.WriteLine("This is not number!!\n");
-                //    Main();
+                //    Initialisations()();
                 //}
                 Console.WriteLine("Summary is \t\t+\n" +
                     "Subtraction is \t\t-\n" +
@@ -42,7 +43,7 @@ namespace HomeWork.ITAcademy1
                 if (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "e" && operation != "!")
                 {
                     Console.WriteLine("Incorrect input!\nTry again from begin\n");
-                    Main();
+                    Initialisations();
                 }
                 if (operation != "!")
                 {
@@ -54,22 +55,22 @@ namespace HomeWork.ITAcademy1
                     //catch (FormatException)
                     //{
                     //    Console.WriteLine("This is not number!!\n");
-                    //    Main();
+                    //    Initialisations()();
                     //}
-                    InsertionOperation(first, second, operation);
+                    InsertionOperation(firstNumber, secondNumber, operation);
                 }
                 else
-                    Console.WriteLine($"Factorial {first} is {Factorial(first)}");
+                    Console.WriteLine($"Factorial {firstNumber} is {Factorial(firstNumber)}");
             }
         }
 
-        static void InsertionOperation(double first, double second, string flag)
+        static void InsertionOperation(double first, double second, string operation)
         {
             bool IsIncorrectFlag = false;
             do
             {
                 IsIncorrectFlag = false;
-                switch (flag)
+                switch (operation)
                 {
                     case "+":
                         Console.WriteLine($"The result of addition {first} and {second} is: {Addition(first, second)}\n");
@@ -111,7 +112,7 @@ namespace HomeWork.ITAcademy1
             if (second == 0)
             {
                 Console.WriteLine("Division by zero. Enter numbers again");
-                Main();
+                Initialisations();
             }
             return first / second;
         }
